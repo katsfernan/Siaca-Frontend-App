@@ -1,0 +1,40 @@
+<html>
+
+<head>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+</head>
+
+<body>
+<app-navbar></app-navbar>
+
+<div class="container">
+  <!--Titulo -->
+  <h1 class="titulo">Formularios</h1>
+  <div class="form-group">
+
+    <!-- Input buscador -->
+    <input type="search" class="form-control" id="floatingInput" placeholder="&#xf002;  Buscar..."  [(ngModel)]="filtroPost"
+      name="filterpost"> 
+      <br>
+  </div>
+</div>
+<div class="container">
+  <!-- Tabla -->
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+
+      </tr>
+    </thead>
+    <!-- links formularios -->
+    <tbody>
+      <tr *ngFor="let post of posts | filtro:filtroPost">
+       <a href="./assets/archivo.pdf" class="list-group-item list-group-item-action"> <td><i class="fa fa-pencil-square-o" aria-hidden="true"></i>{{ post.titulo }}</td></a>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>

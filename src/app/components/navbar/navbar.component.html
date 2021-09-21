@@ -1,0 +1,84 @@
+<html>
+
+<head>
+   <link href="navbar.component.scss" rel="stylesheet">
+   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+
+  </head> 
+
+
+<!-- NAVBAR -->    
+<nav class="navbar navbar-light fixed-top transparent" id="nav">
+  <div class="container-fluid">
+    <img class="mb-4" src="http://siacaservicios.com/wp-content/uploads/2020/05/Group.png" alt="" width="250" height="65">
+
+    <!-- Boton toggler -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+      <span style="color:#FFFFFF" class="navbar-toggler-icon" ></span>
+    </button>
+
+    <!-- Menu desplegable -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header" style="background-color: #FFFFFF">
+        <img class="mb-3" src="./assets/logo.png" alt="" width="250" height="65">
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body transparent">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          
+
+    <!-- Primer item -->
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="#" style="color:#08A75A"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Perfil</a>
+          </li> 
+
+    <!-- Segundo item -->
+          <li class="nav-item">
+            <a class="nav-link" href="#" style="color:#08A75A"><i class="fa fa-cogs" aria-hidden="true"></i> RRHH</a>
+          </li>
+
+    <!-- Tercer item -->
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="#" style="color:#08A75A"><i class="fa fa-shield" aria-hidden="true"></i> SMS</a>
+          </li>
+    <!-- Cuarto item -->
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="#" style="color:#08A75A"><i class="fa fa-check-circle-o" aria-hidden="true"></i> SST</a>
+          </li>
+
+
+    <!-- Cuarto item -->
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" routerLink="/doc" style="color:#08A75A"><i class="fa fa-file-text-o" aria-hidden="true"></i> DOC</a>
+          </li>
+
+    <!-- Quinto item -->
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="#" style="color:#08A75A"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Calidad</a>
+          </li>
+
+    <!-- Sexto item -->
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="#" style="color:#08A75A"><i class="fa fa-bell-o" aria-hidden="true"></i>Notificaciones</a>
+          </li>
+
+    <!-- Septimo item -->
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="#" style="color:#08A75A"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Encuestas</a>
+          </li>
+          
+    <!-- Boton cerrar sesion -->
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="#" style="color:red"><i class="fa fa-sign-out" aria-hidden="true"></i>Cerrar sesión</a>
+          </li>
+
+
+        
+        </ul>
+
+      </div>
+    </div>
+  </div>
+</nav>
+
+</html>

@@ -1,0 +1,32 @@
+body {
+  padding-top: 10%;
+  padding-bottom: 13.5%;
+  background-color: #FFFFFF;
+  font-family: FontAwesome, Verdana, Arial, Helvetica, sans-serif;
+}
+
+.titulo{
+  color :  #08A75A;
+}
+
+.form-group input[type="search"]{
+  margin-left: 80%;
+  border-radius: 20em;
+  background-color: #FFFFFF;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #08A75A;
+  height: 50px;
+  width : 250px;
+}
+
+
+.list-group-item:hover{
+  color:  #08A75A;
+}
+
+i{
+  display: inline-block;
+  margin-right: 1em;
+  margin-left: 1em;
+  }

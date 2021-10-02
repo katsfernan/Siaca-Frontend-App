@@ -7,7 +7,7 @@ body {
 body {
   display: flex;
   align-items: center;
-  padding-top: 13.5%;
+  padding-top: 12%;
   padding-bottom: 13.5%;
   background-color: #FFFFFF;
   font-family: Verdana, Arial, Helvetica, sans-serif;
@@ -72,6 +72,19 @@ a:hover{
   height: 50px;
   background-color: #08A75A;
 }
+
+
+.form-signin .custom-select{
+  margin-bottom: 0px;
+  border-radius: 0.5em;
+  height: 30px;
+  background-color: #FFFFFF;
+  border-style: solid;
+  border-color: #08A75A;
+  border-width: 2px;
+  color: #4D4E56;
+}
+
 
 
 

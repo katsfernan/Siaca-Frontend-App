@@ -6,15 +6,16 @@ import { DocComponent } from "src/app/components/user/doc/doc.component";
 import { ManualesComponent } from "src/app/components/user/doc/manuales/manuales.component";
 import { ManualesAdministrativosComponent } from "src/app/components/user/doc/manuales-administrativos/manuales-administrativos.component";
 import { FormulariosComponent } from "src/app/components/user/doc/formularios/formularios.component";
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
 
 {path: "login", component: LoginComponent},
-{path: "home", component: HomeComponent},
-{path: "doc", component: DocComponent},
-{path: "manuales", component: ManualesComponent},
-{path: "manuales-administrativos", component: ManualesAdministrativosComponent},
-{path: "formularios", component: FormulariosComponent}
+{path: "home", component: HomeComponent, canActivate:[AuthGuard]},
+{path: "doc", component: DocComponent, canActivate:[AuthGuard]},
+{path: "manuales", component: ManualesComponent, canActivate:[AuthGuard]},
+{path: "manuales-administrativos", component: ManualesAdministrativosComponent, canActivate:[AuthGuard]},
+{path: "formularios", component: FormulariosComponent, canActivate:[AuthGuard]}
 
   ];
 

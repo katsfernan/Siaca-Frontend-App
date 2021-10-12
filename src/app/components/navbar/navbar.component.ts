@@ -1,7 +1,8 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { LoginService } from 'src/app/services/login.service';
 import { User, UserResponse } from 'src/app/models/user.interface';
 import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-navbar',
@@ -10,16 +11,23 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
+  public data = sessionStorage.getItem('rol');
+  public permisos = sessionStorage.getItem('permisos');
+  
+@Input() dataEntrante:any;
 
   constructor(public auth: LoginService, private router: Router) { }
 
   ngOnInit(): void {
   }
   
-
-  //Metodo para cerrar sesion en el boton del navbar 
-  onLogout(){
+  //Metodo para cerrar sesion
+  outLogin(){
     this.auth.logout();
     this.router.navigate(['/login']);
   }
+
+
+
+
 }

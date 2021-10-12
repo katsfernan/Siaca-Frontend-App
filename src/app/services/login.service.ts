@@ -8,18 +8,11 @@ import { map } from 'rxjs/operators';
 import { JwtHelperService } from "@auth0/angular-jwt";
 
 
-
-
-
-const helper = new JwtHelperService();
-
-
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
-  
 
   headers = new HttpHeaders();
 
@@ -52,7 +45,6 @@ export class LoginService {
     sessionStorage.getItem('token');
   }
 
-
   //Metodo para verfificar que el usuario este log
   getCurrentUser(){
     let user = sessionStorage.getItem('token');
@@ -62,6 +54,7 @@ export class LoginService {
       return false;
     }
   }
+  
 
   get isLogged(): Observable<boolean>{
     return this.loggedIn.asObservable();

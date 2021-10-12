@@ -26,50 +26,90 @@
       </div>
       <div class="offcanvas-body transparent">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-          
+
+    <!-- Home item -->      
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" routerLink="/home" style="color:#08A75A"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+          </li>
     <!-- Primer item -->
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="#" style="color:#08A75A"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Perfil</a>
           </li> 
 
+
+    <ng-template [ngIf]="data == '1' || data == '4' || data == '13' || data == '17' || data == '50'">
     <!-- Segundo item -->
           <li class="nav-item">
             <a class="nav-link" href="#" style="color:#08A75A"><i class="fa fa-cogs" aria-hidden="true"></i> RRHH</a>
           </li>
+    </ng-template>
 
+    <ng-template [ngIf]="data == '1' || data == '2' || data == '15' || data == '25' || data == '26' || data == '31' || data == '36' || data == '52'">
     <!-- Tercer item -->
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="#" style="color:#08A75A"><i class="fa fa-shield" aria-hidden="true"></i> SMS</a>
           </li>
+        </ng-template>
+
+    <ng-template [ngIf]="data == '1' || data == '20'">
     <!-- Cuarto item -->
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="#" style="color:#08A75A"><i class="fa fa-check-circle-o" aria-hidden="true"></i> SST</a>
           </li>
+    </ng-template>
 
-
+    <ng-template [ngIf]="data != '54' && data != '55'">
     <!-- Cuarto item -->
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" routerLink="/doc" style="color:#08A75A"><i class="fa fa-file-text-o" aria-hidden="true"></i> DOC</a>
+            <a class="nav-link" aria-current="page" routerLink="/doc" style="color:#08A75A"><i class="fa fa-file-text-o" aria-hidden="true"></i> Archivos Calidad</a>
           </li>
+        </ng-template>
 
+        <ng-template [ngIf]="data != '54' && data != '55'">
     <!-- Quinto item -->
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="#" style="color:#08A75A"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Calidad</a>
           </li>
+        </ng-template>
 
+        <ng-template [ngIf]="data != '54' && data != '55'">
     <!-- Sexto item -->
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="#" style="color:#08A75A"><i class="fa fa-bell-o" aria-hidden="true"></i>Notificaciones</a>
-          </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="#" style="color:#08A75A"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Encuestas</a>
+        </li>      
+        </ng-template>
+
 
     <!-- Septimo item -->
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="#" style="color:#08A75A"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Encuestas</a>
+            <a class="nav-link" aria-current="page" href="#" style="color:#08A75A"><i class="fa fa-bell-o" aria-hidden="true"></i>Anuncios</a>
           </li>
+      
+
+     <ng-template [ngIf]="data == '1' || data == '54' || data == '55' ">
+    <!-- Octavo item -->
+    <li class="nav-item">
+      <a class="nav-link" aria-current="page" href="#" style="color:#08A75A"><i class="fa fa-folder-open" aria-hidden="true"></i> Retenciones</a>
+    </li>
+     </ng-template>
+
+      <!-- Noveno item -->
+     <ng-template [ngIf]="data == '1' || data == '55'">
+      <li class="nav-item">
+        <a class="nav-link" aria-current="page" href="#" style="color:#08A75A"><i class="fa fa-handshake-o" aria-hidden="true"></i> Servicios Prestados</a>
+      </li>
+    </ng-template>
+
+      <!-- Decimo item -->
+      <ng-template [ngIf]="data != '54'">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="#" style="color:#08A75A"><i class="fa fa-wpforms" aria-hidden="true"></i> Recibos de pago</a>
+        </li>
+        </ng-template>
 
     <!-- Boton cerrar sesion -->
           <li class="nav-item">
-            <a class="nav-link" aria-current="page"  (click)="onLogout()" style="color:red"><i class="fa fa-sign-out" aria-hidden="true"></i>Cerrar sesión</a>
+            <a class="nav-link" aria-current="page" (click)="outLogin()" style="color:red"><i class="fa fa-sign-out" aria-hidden="true"></i>Cerrar sesión</a>
           </li>
         
         </ul>

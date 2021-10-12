@@ -17,7 +17,10 @@ export class LoginComponent implements OnInit {
     username: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
     user_type: new FormControl('', Validators.required)
-  })
+  });
+
+   
+   public data = sessionStorage.getItem('rol');
 
   constructor(public auth: LoginService, private fb: FormBuilder, private router: Router) { }
 
@@ -30,10 +33,25 @@ export class LoginComponent implements OnInit {
     this.auth.login(form).subscribe(data =>{
       let dataResponse: UserResponse =data;
       sessionStorage.setItem("token", dataResponse.token);
-      console.log(data);
+      sessionStorage.setItem("rol", data.user_data.data.rol.rol_id.toString());
+      sessionStorage.setItem("departamento", data.user_data.data.departamento.dep_id.toString());
+      sessionStorage.setItem("id", data.user_id.toString());
+      console.log(data.user_data.permissions);
+      console.log("token", data.token);
       this.router.navigate(['/home']);
     });
 
   }
 
+   getRol(): any {
+    var lista = sessionStorage.getItem("rol");
+    console.log("rol", lista);
+    this.data = lista;
+  }
+
+
+
+  
+
+ 
 }

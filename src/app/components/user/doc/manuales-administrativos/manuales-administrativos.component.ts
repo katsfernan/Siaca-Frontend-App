@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ArchivosService } from 'src/app/services/archivos.service';
+import { Archivo } from 'src/app/models/archivo.interface';
 
 @Component({
   selector: 'app-manuales-administrativos',
@@ -7,64 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ManualesAdministrativosComponent implements OnInit {
 
-  constructor() { }
+  posts!: Archivo[];
+  
+  constructor(public arch: ArchivosService) { }
 
   filtroPost = "";
 
-    posts = [
-    {
-      id: 1,
-      titulo: "MA-GOP-001 ",
-      
-    },
-    {
-      id: 2,
-      titulo: "MA-SMS-002",
-      
-    },
-    {
-      id: 3,
-      titulo: "MA-SST-003",
-      
-    },
-    {
-      id: 4,
-      titulo: "MA-GOP-004",
-      
-    },
-    {
-      id: 5,
-      titulo: "MA-MNT-005",
-      
-    },
-    {
-      id: 6,
-      titulo: "MA-GOP-006 ",
-      
-    },
-    {
-      id: 7,
-      titulo: "MA-GOP-007 ",
-      
-    },
-    {
-      id: 8,
-      titulo: "MA-SMS-008 ",
-      
-    },
-    {
-      id: 9,
-      titulo: "MA-SAP-009 ",
-      
-    },
-    {
-      id: 10,
-      titulo: "MA-DSP-012",
-      
-    }
-  ];
-
   ngOnInit(): void {
+    this.arch.getArchivosAdministrativos().subscribe((data) => {(this.posts! = data)});
   }
 
 }

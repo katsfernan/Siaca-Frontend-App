@@ -34,8 +34,9 @@
 
     <!-- links manuales -->
     <tbody>
+     
       <tr *ngFor="let post of posts | filtro:filtroPost">
-       <a href="./assets/archivo.pdf" class="list-group-item list-group-item-action"> <td><i class="fa fa-file-pdf-o" aria-hidden="true"></i>{{ post.titulo }}</td></a>
+       <a href="./assets/archivo.pdf" class="list-group-item list-group-item-action"> <td><i class="fa fa-file-pdf-o" aria-hidden="true"></i>{{post.agc_titulo}}</td></a>
       </tr>
     </tbody>
   </table>

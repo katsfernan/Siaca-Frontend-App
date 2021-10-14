@@ -1,0 +1,69 @@
+<html>
+
+<head>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+</head>
+
+<body>
+
+<!-- Navbar -->  
+<app-navbar></app-navbar>
+  
+
+    <!--Titulo -->
+  <h1 class="titulo">Anuncios</h1>
+
+
+<ng-template [ngIf]="data != '1' && data != '4'">
+  <!-- contendor de notificaciones -->
+<div class="contenedor">                
+    <div class="alert alert-dismissible fade show" role="alert">
+      <strong>Notificación:</strong> Contenido
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <div class="alert alert-dismissible fade show" role="alert">
+      <strong>Notificación:</strong> Contenido
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <div class="alert alert-dismissible fade show" role="alert">
+      <strong>Notificación:</strong> Contenido
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <div class="alert alert-dismissible fade show" role="alert">
+      <strong>Notificación:</strong> Contenido
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    </div>
+</ng-template>
+
+
+<ng-template [ngIf]="data == '1' || data == '4'" >
+    <main class="form">
+    <div class="container-bg-transparent">
+        <input type="text" class="form-control" id="floatingInput" placeholder="Titulo" required="required">
+        <br>
+
+        <textarea style="height: 250px;" class="form-control" placeholder="Contenido" id="exampleFormControlTextarea1" rows="10"></textarea>
+        <br>
+        <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
+            <label class="custom-control-label" for="customRadioInline1">Departamento</label>
+          </div>
+          <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
+            <label class="custom-control-label" for="customRadioInline2">Usuario</label>
+          </div>
+
+    <br>
+    <button class="btn btn-lg btn-success"  id="boton" type="submit">Enviar<i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+
+
+
+    </div>
+    </main>
+</ng-template>
+
+
+
+ 
+  </body>

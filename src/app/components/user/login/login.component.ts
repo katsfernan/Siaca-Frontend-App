@@ -34,11 +34,16 @@ export class LoginComponent implements OnInit {
       let dataResponse: UserResponse =data;
       sessionStorage.setItem("token", dataResponse.token);
       sessionStorage.setItem("rol", data.user_data.data.rol.rol_id.toString());
-      sessionStorage.setItem("departamento", data.user_data.data.departamento.dep_id.toString());
       sessionStorage.setItem("id", data.user_id.toString());
       console.log(data.user_data.permissions);
       console.log("token", data.token);
       this.router.navigate(['/home']);
+      if (sessionStorage.setItem('id_empleado', data.user_data.data.emp_id.toString())==null){
+        return false;
+
+      }else{
+        return sessionStorage.setItem('id_empleado', data.user_data.data.emp_id.toString());
+      }
     });
 
   }

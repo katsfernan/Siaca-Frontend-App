@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from 'src/app/services/login.service';
 //import Swal from 'sweetalert2/dist/sweetalert2.js'
 
 
@@ -13,7 +14,8 @@ import { Component, OnInit } from '@angular/core';
 
 export class DocComponent implements OnInit {
  
-
+  public data = sessionStorage.getItem('rol');
+  
   constructor() { }
 
   ngOnInit(): void {

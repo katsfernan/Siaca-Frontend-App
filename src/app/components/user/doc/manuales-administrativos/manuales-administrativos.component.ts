@@ -10,6 +10,8 @@ import { Archivo } from 'src/app/models/archivo.interface';
 export class ManualesAdministrativosComponent implements OnInit {
 
   posts!: Archivo[];
+  public data = sessionStorage.getItem('rol');
+  public id= sessionStorage.getItem('id_empleado');
   
   constructor(public arch: ArchivosService) { }
 

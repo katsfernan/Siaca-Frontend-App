@@ -17,6 +17,8 @@ import { ManualesAdministrativosComponent } from './components/user/doc/manuales
 import { FormulariosComponent } from './components/user/doc/formularios/formularios.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { AnunciosComponent } from './components/user/anuncios/anuncios.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ManualesComponent,
     FiltroPipe,
     ManualesAdministrativosComponent,
-    FormulariosComponent
+    FormulariosComponent,
+    AnunciosComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +40,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     SweetAlert2Module.forRoot(),
     ModalModule.forRoot(),
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PdfViewerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

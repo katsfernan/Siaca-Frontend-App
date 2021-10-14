@@ -13,6 +13,7 @@ export class NavbarComponent implements OnInit {
 
   public data = sessionStorage.getItem('rol');
   public permisos = sessionStorage.getItem('permisos');
+  public empleado = sessionStorage.getItem('id_empleado');
   
 @Input() dataEntrante:any;
 

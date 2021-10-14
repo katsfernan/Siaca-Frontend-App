@@ -16,6 +16,7 @@ export interface UserResponse{
     "user_id": number;
     "user_data": {
         "data": {
+            "emp_id": number,
             "departamento":{
                 "dep_id": number
             },

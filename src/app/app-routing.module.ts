@@ -6,6 +6,7 @@ import { DocComponent } from "src/app/components/user/doc/doc.component";
 import { ManualesComponent } from "src/app/components/user/doc/manuales/manuales.component";
 import { ManualesAdministrativosComponent } from "src/app/components/user/doc/manuales-administrativos/manuales-administrativos.component";
 import { FormulariosComponent } from "src/app/components/user/doc/formularios/formularios.component";
+import { AnunciosComponent } from './components/user/anuncios/anuncios.component';
 import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
@@ -15,7 +16,8 @@ const routes: Routes = [
 {path: "doc", component: DocComponent, canActivate:[AuthGuard]},
 {path: "manuales", component: ManualesComponent, canActivate:[AuthGuard]},
 {path: "manuales-administrativos", component: ManualesAdministrativosComponent, canActivate:[AuthGuard]},
-{path: "formularios", component: FormulariosComponent, canActivate:[AuthGuard]}
+{path: "formularios", component: FormulariosComponent, canActivate:[AuthGuard]},
+{path: "anuncios", component: AnunciosComponent, canActivate:[AuthGuard]}
 
   ];
 

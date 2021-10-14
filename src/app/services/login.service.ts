@@ -31,6 +31,9 @@ export class LoginService {
   //Metodo de logout
   logout():void{
     sessionStorage.removeItem("token");
+    sessionStorage.removeItem("rol");
+    sessionStorage.removeItem("id");
+    sessionStorage.removeItem("id_empleado");
     this.loggedIn.next(false);
   }
 

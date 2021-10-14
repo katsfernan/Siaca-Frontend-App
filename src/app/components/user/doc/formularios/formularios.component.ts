@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ArchivosService } from 'src/app/services/archivos.service';
+import { Archivo } from 'src/app/models/archivo.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-formularios',
@@ -7,64 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormulariosComponent implements OnInit {
 
-  constructor() { }
+  posts!: Archivo[];
+  public data = sessionStorage.getItem('rol');
+  public id= sessionStorage.getItem('id_empleado');
+
+  constructor(public arch: ArchivosService,  private router: Router) { }
 
   filtroPost = "";
 
-    posts = [
-    {
-      id: 1,
-      titulo: "Formulario-001 ",
-      
-    },
-    {
-      id: 2,
-      titulo: "Formulario-002",
-      
-    },
-    {
-      id: 3,
-      titulo: "Formulario-003",
-      
-    },
-    {
-      id: 4,
-      titulo: "Formulario-004",
-      
-    },
-    {
-      id: 5,
-      titulo: "Formulario-005",
-      
-    },
-    {
-      id: 6,
-      titulo: "Formulario-006 ",
-      
-    },
-    {
-      id: 7,
-      titulo: "Formulario-007 ",
-      
-    },
-    {
-      id: 8,
-      titulo: "Formulario-008 ",
-      
-    },
-    {
-      id: 9,
-      titulo: "Formulario-009 ",
-      
-    },
-    {
-      id: 10,
-      titulo: "Formulario-012",
-      
-    }
-  ];
-
   ngOnInit(): void {
+
+    this.arch.getFormularios().subscribe((data) => {(this.posts! = data)});
   }
 
 }

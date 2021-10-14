@@ -13,14 +13,29 @@ export class ArchivosService {
   }
 
   getArchivosAdministrativos(): Observable<Archivo[]> {
-    var id = sessionStorage.getItem("id");
+    var id = sessionStorage.getItem("id_empleado");
     let header = new HttpHeaders({'Authorization': 'Token ' + sessionStorage.getItem('token')});
     return this.http.get<Archivo[]>("http://127.0.0.1:8000/empleado/"+id+"/archivos-gestion-calidad/?tipo=Administrativo", {headers: header});
   }
 
   getArchivosOperacionales(): Observable<Archivo[]> {
-    var id = sessionStorage.getItem("id");
+    var id = sessionStorage.getItem("id_empleado");
     let header = new HttpHeaders({'Authorization': 'Token ' + sessionStorage.getItem('token')});
     return this.http.get<Archivo[]>("http://127.0.0.1:8000/empleado/"+id+"/archivos-gestion-calidad/?tipo=Operacional", {headers: header});
   }
+
+  getFormularios(): Observable<Archivo[]> {
+    var id = sessionStorage.getItem("id_empleado");
+    let header = new HttpHeaders({'Authorization': 'Token ' + sessionStorage.getItem('token')});
+    return this.http.get<Archivo[]>("http://127.0.0.1:8000/empleado/"+id+"/archivos-gestion-calidad/?tipo=Formulario", {headers: header});
+  }
+
+  getPdf(): Observable<Blob> {
+    var id = sessionStorage.getItem("id_empleado");
+    var direccion= sessionStorage.getItem("url");
+    let header = new HttpHeaders({'Authorization': 'Token ' + sessionStorage.getItem('token')});
+    return this.http.get<Blob>("http://127.0.0.1:8000/empleado/"+id+"/archivos-gestion-calidad/"+direccion, {headers: header});
+  }
+
+  
 }

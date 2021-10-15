@@ -19,8 +19,6 @@ export class LoginComponent implements OnInit {
     user_type: new FormControl('', Validators.required)
   });
 
-   
-   public data = sessionStorage.getItem('rol');
 
   constructor(public auth: LoginService, private fb: FormBuilder, private router: Router) { }
 
@@ -48,15 +46,4 @@ export class LoginComponent implements OnInit {
 
   }
 
-   getRol(): any {
-    var lista = sessionStorage.getItem("rol");
-    console.log("rol", lista);
-    this.data = lista;
-  }
-
-
-
-  
-
- 
 }

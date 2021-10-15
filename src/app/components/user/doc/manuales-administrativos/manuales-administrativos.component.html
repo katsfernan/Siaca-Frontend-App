@@ -3,13 +3,14 @@
 <head>
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
 </head>
+
+<!--Condicional de permisos-->
 <ng-template [ngIf]="data != '54' && data != '55'">
 <body>
 
 <!-- Navbar -->  
 <app-navbar></app-navbar>
   
-<a class='link'  [swal]="{ title: 'Notificación', text: 'Contenido',confirmButtonText: 'Aceptar', showCloseButton: true, icon: 'warning' }"></a>
 <div class="container">
 
     <!--Titulo -->
@@ -24,8 +25,9 @@
 </div>
 <div class="container">
 
-    <!---Boton para agregar Archivos-->
+      <!--Condicional de permiso de Administrados-->
     <ng-template [ngIf]="data == '1' || data == '4'">
+       <!---Boton para agregar Archivos-->
     <button class="btn btn-outline-primary center">Agregar Archivo <i class="fa fa-cloud-upload"></i></button>
     </ng-template>
 
@@ -34,16 +36,20 @@
     <thead>
       <tr>
         <th>Nombre</th>
-
       </tr>
     </thead>
       <!-- links manuales -->
       <tbody>
-     
         <tr *ngFor="let post of posts | filtro:filtroPost">
          <td><a href="http://127.0.0.1:8000/empleado/{{id}}/archivos-gestion-calidad/{{post.agc_id}}" class="list-group-item list-group-item-action"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> {{post.agc_titulo}}</a> 
-          <ng-template [ngIf]="data == '1' || data == '4'"><button class="btn btn-outline-danger">Eliminar<i class="fa fa-trash"></i></button>  
-          <button class="btn btn-outline-success"> Actualizar<i class="fa fa-refresh"></i></button> </ng-template> </td>
+          <!--Condicional de permiso de Administrados-->
+          <ng-template [ngIf]="data == '1' || data == '4'">
+            <!--Boton para eliminar Formulario-->
+            <button class="btn btn-outline-danger">Eliminar<i class="fa fa-trash"></i></button>  
+            <!--Boton para actualizar Formulario-->
+          <button class="btn btn-outline-success"> Actualizar<i class="fa fa-refresh"></i></button>
+          </ng-template> 
+         </td>
         </tr>
       </tbody>
     </table>

@@ -4,6 +4,7 @@
 
 </head>  
 
+ <!--Condicional de permisos-->
 <ng-template [ngIf]="data != '54' && data != '55'">
 <body>
 
@@ -16,7 +17,7 @@
             <div class="container">
                 <div id="cards-wrapper" class="cards-wrapper row">
 
-                    <!-- Primer boton -->
+                    <!-- Boton Manual de Operaciones-->
                     <div class="item item-uno col-lg ">
                         <div class="item-inner">
                             <div class="icon-holder">
@@ -32,7 +33,7 @@
                         </div><!--//item-inner-->
                     </div><!--//item-->
 
-                    <!-- Segundo boton -->
+                    <!-- Boton Manuales Administrativos -->
                     <div class="item item-dos item-2 col-lg ">
                         <div class="item-inner">
                             <div class="icon-holder">
@@ -48,7 +49,7 @@
                         </div><!--//item-inner-->
                     </div><!--//item-->
 
-                    <!-- Tercer boton -->
+                    <!-- Boton Boletines -->
                     <div class="item item-tres col-lg ">
                         <div class="item-inner">
                             <div class="icon-holder">
@@ -63,7 +64,7 @@
                         </div><!--//item-inner-->
                     </div><!--//item-->
 
-                    <!-- Cuarto item -->
+                    <!-- Boton Formularios -->
                     <div class="item item-cuatro col-lg ">
                         <div class="item-inner">
                             <div class="icon-holder">
@@ -114,15 +115,13 @@
 
 
 
-
-
-
-
 <!-- Button trigger modal -->
 <!--<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
  Notificación
 </button>-->
-<!-- Modal -->
+
+
+<!-- Ventana Modal para las notoficaciones -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">

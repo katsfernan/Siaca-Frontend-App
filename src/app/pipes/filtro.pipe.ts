@@ -5,6 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class FiltroPipe implements PipeTransform {
 
+  //Metodo para el buscador
    transform(value: any, arg: any): any {
     const resultPosts = [];
     for(const post of value){

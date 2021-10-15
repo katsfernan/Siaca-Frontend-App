@@ -1,3 +1,5 @@
+//Interface para los Archivos
+//get
 export interface Archivo{ 
 
     "agc_id": number,

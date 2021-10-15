@@ -13,7 +13,6 @@
     <img class="mb-4" src="http://siacaservicios.com/wp-content/uploads/2020/05/Group.png" alt="" width="250" height="65">
 
     <!-- Boton toggler -->
-
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
       <span style="color:#FFFFFF" class="navbar-toggler-icon" ></span>
     </button>
@@ -27,81 +26,88 @@
       <div class="offcanvas-body transparent">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
 
-    <!-- Home item -->      
+    <!-- Link Home-->      
           <li class="nav-item">
             <a class="nav-link" aria-current="page" routerLink="/home" style="color:#08A75A"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
           </li>
-    <!-- Primer item -->
+    <!-- Link Perfil -->
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="#" style="color:#08A75A"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Perfil</a>
           </li> 
 
-
+  <!--Condicional de permisos-->
     <ng-template [ngIf]="data == '1' || data == '4' || data == '13' || data == '17' || data == '50'">
-    <!-- Segundo item -->
+    <!-- Link RRHH -->
           <li class="nav-item">
             <a class="nav-link" href="#" style="color:#08A75A"><i class="fa fa-cogs" aria-hidden="true"></i> RRHH</a>
           </li>
     </ng-template>
 
+    <!--Condicional de permisos-->
     <ng-template [ngIf]="data == '1' || data == '2' || data == '15' || data == '25' || data == '26' || data == '31' || data == '36' || data == '52'">
-    <!-- Tercer item -->
+    <!-- Link SMS -->
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="#" style="color:#08A75A"><i class="fa fa-shield" aria-hidden="true"></i> SMS</a>
           </li>
         </ng-template>
 
+   <!--Condicional de permisos-->
     <ng-template [ngIf]="data == '1' || data == '20'">
-    <!-- Cuarto item -->
+    <!-- Link SST -->
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="#" style="color:#08A75A"><i class="fa fa-check-circle-o" aria-hidden="true"></i> SST</a>
           </li>
     </ng-template>
 
+    <!--Condicional de permisos-->
     <ng-template [ngIf]="data != '54' && data != '55'">
-    <!-- Cuarto item -->
+    <!-- Link Archivos Calidad -->
           <li class="nav-item">
             <a class="nav-link" aria-current="page" routerLink="/doc" style="color:#08A75A"><i class="fa fa-file-text-o" aria-hidden="true"></i> Archivos Calidad</a>
           </li>
         </ng-template>
 
+    <!--Condicional de permisos-->
         <ng-template [ngIf]="data != '54' && data != '55'">
-    <!-- Quinto item -->
+    <!-- Link Calidad -->
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="#" style="color:#08A75A"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Calidad</a>
           </li>
         </ng-template>
 
+    <!--Condicional de permisos-->
         <ng-template [ngIf]="data != '54' && data != '55'">
-    <!-- Sexto item -->
+    <!-- Link Encuestas -->
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="#" style="color:#08A75A"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Encuestas</a>
         </li>      
         </ng-template>
 
 
-    <!-- Septimo item -->
+    <!-- Link Anuncios -->
           <li class="nav-item">
             <a class="nav-link" aria-current="page" routerLink="/anuncios" style="color:#08A75A"><i class="fa fa-bell-o" aria-hidden="true"></i>Anuncios</a>
           </li>
       
-
+    <!--Condicional de permisos-->
      <ng-template [ngIf]="data == '1' || data == '54' || data == '55' ">
-    <!-- Octavo item -->
+    <!-- Link Retenciones -->
     <li class="nav-item">
       <a class="nav-link" aria-current="page" href="#" style="color:#08A75A"><i class="fa fa-folder-open" aria-hidden="true"></i> Retenciones</a>
     </li>
      </ng-template>
 
-      <!-- Noveno item -->
+      <!--Condicional de permisos-->
      <ng-template [ngIf]="data == '1' || data == '55'">
+      <!--Link Servicios Prestados-->
       <li class="nav-item">
         <a class="nav-link" aria-current="page" href="#" style="color:#08A75A"><i class="fa fa-handshake-o" aria-hidden="true"></i> Servicios Prestados</a>
       </li>
     </ng-template>
 
-      <!-- Decimo item -->
+      <!--Condicional de permisos-->
       <ng-template [ngIf]="data != '54'">
+      <!--Link Recibos de pago-->
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="#" style="color:#08A75A"><i class="fa fa-wpforms" aria-hidden="true"></i> Recibos de pago</a>
         </li>

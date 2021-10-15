@@ -13,7 +13,7 @@ import { JwtHelperService } from "@auth0/angular-jwt";
 })
 export class LoginService {
 
-
+ //variable para el header
   headers = new HttpHeaders();
 
   private loggedIn = new BehaviorSubject<boolean>(false);

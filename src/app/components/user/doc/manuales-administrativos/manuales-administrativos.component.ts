@@ -9,15 +9,23 @@ import { Archivo } from 'src/app/models/archivo.interface';
 })
 export class ManualesAdministrativosComponent implements OnInit {
 
+
+   //Lista de Manuales
   posts!: Archivo[];
+
+  //variable con el rol de usuario
   public data = sessionStorage.getItem('rol');
+
+  //variable con rol de empleado
   public id= sessionStorage.getItem('id_empleado');
   
   constructor(public arch: ArchivosService) { }
 
+  //Variable para el filtro del buscador
   filtroPost = "";
 
   ngOnInit(): void {
+    // Llamada a la Lista de Manuales
     this.arch.getArchivosAdministrativos().subscribe((data) => {(this.posts! = data)});
   }
 

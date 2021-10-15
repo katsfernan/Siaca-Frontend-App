@@ -13,57 +13,80 @@
     <!--Titulo -->
   <h1 class="titulo">Anuncios</h1>
 
-
+<!--Permiso de vista para Usuarios-->
 <ng-template [ngIf]="data != '1' && data != '4'">
-  <!-- contendor de notificaciones -->
+  <!-- contendor de anuncios-->
 <div class="contenedor">                
-    <div class="alert alert-dismissible fade show" role="alert">
-      <strong>Notificación:</strong> Contenido
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  
+  <!---Lista de anuncios-->
+  <tbody>
+    <tr *ngFor="let mensaje of mensajes">
+     <td><strong><u  style="color:#08A75A" class="list-group-item"><i class="fa fa-bullhorn" aria-hidden="true"></i> {{mensaje.anu_titulo}}:</u></strong>
+      <u class="list-group-item">{{mensaje.anu_mensaje}} </u>
+      <u class="list-group-item"> <i class="fa fa-calendar" aria-hidden="true"></i>{{mensaje.anu_fecha_modif}}<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></u>
+      <br>
+     </td>
+    </tr>
+  </tbody>
     </div>
-    <div class="alert alert-dismissible fade show" role="alert">
-      <strong>Notificación:</strong> Contenido
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-    <div class="alert alert-dismissible fade show" role="alert">
-      <strong>Notificación:</strong> Contenido
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-    <div class="alert alert-dismissible fade show" role="alert">
-      <strong>Notificación:</strong> Contenido
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-    </div>
+  <!--Boton de Aceptar-->
+    <button class="btn btn-lg btn-success" routerLink="/home"  id="boton" type="submit">Aceptar</button>
 </ng-template>
 
 
+<!--Permiso de vista para Administradores-->
 <ng-template [ngIf]="data == '1' || data == '4'" >
+  <form [formGroup]="Form" (ngSubmit)="crearAnuncio(Form.value)">
     <main class="form">
     <div class="container-bg-transparent">
-        <input type="text" class="form-control" id="floatingInput" placeholder="Titulo" required="required">
+
+      <!--Input de titulo del anuncio-->
+        <input type="text" class="form-control" maxlength="255" formControlName="anu_titulo" id="floatingInput"  required="required" placeholder="Titulo" required="required">
         <br>
 
-        <textarea style="height: 250px;" class="form-control" placeholder="Contenido" id="exampleFormControlTextarea1" rows="10"></textarea>
+      <!--Contenido del anuncio-->
+        <textarea style="height: 250px;" maxlength="500" class="form-control" formControlName="anu_mensaje"  required="required" placeholder="Contenido" id="exampleFormControlTextarea1" rows="10"></textarea>
         <br>
-        <div class="custom-control custom-radio custom-control-inline">
+     <!---  <div class="custom-control custom-radio custom-control-inline">
             <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
             <label class="custom-control-label" for="customRadioInline1">Departamento</label>
           </div>
           <div class="custom-control custom-radio custom-control-inline">
             <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
             <label class="custom-control-label" for="customRadioInline2">Usuario</label>
-          </div>
+          </div>--->
 
     <br>
-    <button class="btn btn-lg btn-success"  id="boton" type="submit">Enviar<i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
 
-
+  <!--Checkboc de los departamentos-->
+<div>
+    <a>Departamento:    </a>
+    <select class="custom-select" formControlName="id" required="required">
+      <option selected></option>
+      <option  value="1">Direccion</option>
+      <option  value="2">Operaciones</option>
+      <option  value="3">Recursos Humanos</option>
+      <option  value="4">Administración y Finanzas</option>
+      <option  value="5">Tecnología Informática</option>
+      <option  value="6">Comercialización</option>
+      <option  value="7">Mantenimiento</option>
+      <option  value="8">Servicio al Pasajero</option>
+      <option  value="9">Despacho de Vuelos</option>
+      <option  value="10">Seguridad y Salud en el Trabajo</option>
+      <option  value="11">Capacitacion y Desarrollo</option>
+      <option  value="12">Seguridad Operacional</option>
+      <option  value="13">Organizacion y Metodos</option>
+      <option  value="14">Gestion de la Calidad</option>
+      <option  value="15">Gestion y Recaudación de Cobros y Pagos</option>
+    </select>
+    </div>
 
     </div>
+
+  <!--Boton de Enviar-->
+    <button class="btn btn-lg btn-success"  id="boton" type="submit">Enviar<i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
     </main>
+    </form>
 </ng-template>
 
-
-
- 
-  </body>
+</body>

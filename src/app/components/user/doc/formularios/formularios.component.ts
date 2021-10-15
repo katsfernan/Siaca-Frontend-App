@@ -10,16 +10,22 @@ import { Router } from '@angular/router';
 })
 export class FormulariosComponent implements OnInit {
 
+  //Lista de Formularios
   posts!: Archivo[];
+
+  //variable con el rol de usuario
   public data = sessionStorage.getItem('rol');
+
+  //variable con rol de empleado
   public id= sessionStorage.getItem('id_empleado');
 
   constructor(public arch: ArchivosService,  private router: Router) { }
 
+  //Variable para el filtro del buscador
   filtroPost = "";
 
   ngOnInit(): void {
-
+    // Llamada a la Lista de Formularios
     this.arch.getFormularios().subscribe((data) => {(this.posts! = data)});
   }
 

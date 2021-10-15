@@ -16,7 +16,7 @@ body {
     padding-bottom: 3%;
     border: 3px solid #08A75A;
     border-radius: 1em;
-    max-width: 844px;
+    max-width: 900px;
     margin-bottom: 60px;
     position :relative !important; 
     left: 28% !important;
@@ -47,7 +47,7 @@ body {
   }
 
   .btn-success {
-    margin-bottom: 0px;
+    margin-bottom: 10px;
     border-radius: 20em;
     height: 50px;
     width: 20%;
@@ -55,6 +55,30 @@ body {
     margin-left: 40%;
   }
 
- i{
-      margin-left: 0.5em;
+  i{
+    display: inline-block;
+    margin-right: 1em;
+    margin-left: 1em;
+    }
+
+.custom-select{
+    margin-bottom: 0px;
+    border-radius: 0.5em;
+    height: 30px;
+    background-color: #FFFFFF;
+    border-style: solid;
+    border-color: #08A75A;
+    border-width: 2px;
+    color: #4D4E56;
   }
+
+u{
+  width:20cm;
+  border-color: #FFFFFF;
+
+}
+
+.form-check-input{
+  align-items: flex-end;
+  margin-left: 1em;
+}

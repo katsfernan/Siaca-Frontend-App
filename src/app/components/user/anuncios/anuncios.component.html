@@ -9,28 +9,39 @@
 <!-- Navbar -->  
 <app-navbar></app-navbar>
   
+      
+<!--Titulo -->
+  <strong><h1 class="titulo">Anuncios</h1></strong> 
 
-    <!--Titulo -->
-  <h1 class="titulo">Anuncios</h1>
+
 
 <!--Permiso de vista para Usuarios-->
 <ng-template [ngIf]="data != '1' && data != '4'">
   <!-- contendor de anuncios-->
-<div class="contenedor">                
+  <form [formGroup]="FormActualizar" (ngSubmit)="anuncioVisto(FormActualizar.value)">
+<div class="contenedor">            
   
   <!---Lista de anuncios-->
   <tbody>
+
     <tr *ngFor="let mensaje of mensajes">
-     <td><strong><u  style="color:#08A75A" class="list-group-item"><i class="fa fa-bullhorn" aria-hidden="true"></i> {{mensaje.anu_titulo}}:</u></strong>
+     <td><h4><u  style="color:#08A75A" class="list-group-item"><i class="fa fa-bullhorn" aria-hidden="true"></i> {{mensaje.anu_titulo}}:</u></h4>
       <u class="list-group-item">{{mensaje.anu_mensaje}} </u>
-      <u class="list-group-item"> <i class="fa fa-calendar" aria-hidden="true"></i>{{mensaje.anu_fecha_modif}}<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></u>
+      <u class="list-group-item" > <i class="fa fa-calendar" aria-hidden="true"></i>{{mensaje.anu_fecha_modif}}
+      <select class="custom-select" formControlName="anuncio_id" required="required">
+        <option selected value="">No leido</option>
+        <option value="{{mensaje.anu_id}}">Leido</option>
+      </select>
+      <button class="btn btn-outline-primary"  id="boton" type="submit">Confirmar</button>
+    </u>
       <br>
      </td>
     </tr>
   </tbody>
     </div>
   <!--Boton de Aceptar-->
-    <button class="btn btn-lg btn-success" routerLink="/home"  id="boton" type="submit">Aceptar</button>
+<!--<button class="btn btn-lg btn-success"  id="boton" type="submit">Aceptar</button>-->
+  </form>
 </ng-template>
 
 
@@ -47,22 +58,14 @@
       <!--Contenido del anuncio-->
         <textarea style="height: 250px;" maxlength="500" class="form-control" formControlName="anu_mensaje"  required="required" placeholder="Contenido" id="exampleFormControlTextarea1" rows="10"></textarea>
         <br>
-     <!---  <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
-            <label class="custom-control-label" for="customRadioInline1">Departamento</label>
-          </div>
-          <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
-            <label class="custom-control-label" for="customRadioInline2">Usuario</label>
-          </div>--->
 
     <br>
 
-  <!--Checkboc de los departamentos-->
+  <!--Checkbox de los departamentos-->
 <div>
     <a>Departamento:    </a>
     <select class="custom-select" formControlName="id" required="required">
-      <option selected></option>
+      <option selected value="0">Todos los departamentos</option>
       <option  value="1">Direccion</option>
       <option  value="2">Operaciones</option>
       <option  value="3">Recursos Humanos</option>
@@ -84,9 +87,33 @@
     </div>
 
   <!--Boton de Enviar-->
-    <button class="btn btn-lg btn-success"  id="boton" type="submit">Enviar<i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+    <button class="btn btn-lg btn-success"  data-bs-toggle="modal" data-bs-target="#exampleModal"  id="boton" type="submit">Enviar<i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
     </main>
     </form>
+    <!-- Button trigger modal -->
+<!--<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+ Notificación
+</button>-->
+
+
+<!-- Ventana Modal para las notoficaciones -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered"  role="document">
+    <div class="modal-content" style="text-align:center; " >
+     <div class="modal-header" style=" text-align: center;">
+       <strong><h5 class="modal-title" style="text-align: center;" id="exampleModalLabel">Anuncio enviado exitosamente</h5></strong>
+      </div>
+      <div class="modal-body">
+        Su anuncio: <strong>"{{Form.value.anu_titulo}}"</strong>, ha sido enviado <br>
+        ¿Desea enviar otro anuncio?
+      </div>
+      <div class="modal-footer" style="justify-content:center; text-align: center; ">
+        <button type="button" class="btn btn-outline-success" (click)="refresh()"  data-bs-dismiss="modal">Si</button>
+        <button type="button" class="btn btn-outline-danger" routerLink="/home"  data-bs-dismiss="modal">No</button>
+      </div>
+    </div>
+  </div>
+</div>  
 </ng-template>
 
 </body>

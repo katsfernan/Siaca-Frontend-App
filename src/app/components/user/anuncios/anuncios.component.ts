@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AnunciosService } from 'src/app/services/anuncios.service';
-import { Anuncio, Mensaje } from 'src/app/models/anuncios.interface';
+import { Anuncio, Mensaje, Actualizar } from 'src/app/models/anuncios.interface';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -19,8 +19,14 @@ export class AnunciosComponent implements OnInit {
     id :  new FormControl('', Validators.required)
   });
 
+  FormActualizar = new FormGroup({
+    anuncio_id : new FormControl('', Validators.required)
+  });
+
+
   //lista de anuncios
   mensajes!: Mensaje[];
+  actualizar!: Actualizar[];
 
   //variable que guarda el rol del usuario
   public data = sessionStorage.getItem('rol');
@@ -36,12 +42,23 @@ export class AnunciosComponent implements OnInit {
  crearAnuncio(form:Anuncio){
   this.anuncio.nuevoAnuncio(form).subscribe((data)=>{
     var res : any =data;
-    this.router.navigate(['/home']);
+
   });
     console.log("datos" ,this.data);
  }
 
+ refresh(){
+  window.location.reload();
+ }
 
+ anuncioVisto(id : Actualizar){
+   this.anuncio.actualizarAnuncio(id).subscribe((data)=>{
+    var res : any =data;
+    this.ngOnInit();
+  });
+   console.log("id",this.data);
+   console.log("id",id);
+ }
 
 
 }

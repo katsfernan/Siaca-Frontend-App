@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'; 
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
-import { Anuncio, Mensaje } from '../models/anuncios.interface';
+import { Anuncio, Mensaje, Actualizar } from '../models/anuncios.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -23,5 +23,11 @@ export class AnunciosService {
     var id = sessionStorage.getItem("id_empleado");
     let header = new HttpHeaders({'Authorization': 'Token ' + sessionStorage.getItem('token')});
     return this.http.get<Mensaje[]>('http://127.0.0.1:8000/empleado/'+id+'/anuncio/', {headers: header});
+  }
+
+  actualizarAnuncio(form: Actualizar) : Observable<any>{
+    var id = sessionStorage.getItem("id_empleado");
+    let header = new HttpHeaders({'Authorization': 'Token ' + sessionStorage.getItem('token')});
+    return this.http.post<any>('http://127.0.0.1:8000/empleado/'+id+'/anuncio/', form , {headers: header});
   }
 }

@@ -12,11 +12,16 @@ export interface Anuncio{
 //get
 export interface Mensaje{
     
-        "anu_id": number,
+        "anu_id": string ,
         "anu_titulo": string,
         "anu_mensaje": string,
         "anu_fecha_modif": string,
         "anu_status": boolean,
         "anu_usu_modif_fk": number
     
+}
+
+//post
+export interface Actualizar{
+        "anuncio_id": string
 }

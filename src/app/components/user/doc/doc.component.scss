@@ -26,10 +26,9 @@ body {
 }
 
 .titulo{
-  position: absolute;
-  right: 47.5%;
-  margin-right: -100px;
-  color: #08A75A;
+  color :  #08A75A;
+  text-align:center;
+  margin-bottom: 0.5%;
 }
 
 .alert{
@@ -179,5 +178,7 @@ body {
 .contendedor .alert-dismissible .btn-close:hover{
   color:  #08A75A;
 }
+
+
 
 

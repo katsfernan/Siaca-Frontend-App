@@ -1,6 +1,8 @@
 <head>
 <link href="doc.component.scss" rel="stylesheet">
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 </head>  
 
@@ -11,7 +13,7 @@
 <!--Navbar -->    
 <app-navbar></app-navbar>
 
-<a class='link'  [swal]="{ title: 'Notificación', text: 'Contenido',confirmButtonText: 'Aceptar', showCloseButton: true, icon: 'warning' }"></a>
+
  <!-- seccion botones -->   
  <section class="cards-section text-center">
             <div class="container">
@@ -94,21 +96,9 @@
 
 <!-- contendor de notificaciones -->
 <div class="contenedor">                
-<div class="alert alert-dismissible fade show" role="alert">
-  <strong>Notificación:</strong> Contenido
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
-<div class="alert alert-dismissible fade show" role="alert">
-  <strong>Notificación:</strong> Contenido
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
-<div class="alert alert-dismissible fade show" role="alert">
-  <strong>Notificación:</strong> Contenido
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
-<div class="alert alert-dismissible fade show" role="alert">
-  <strong>Notificación:</strong> Contenido
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+<div class="alert alert-dismissible fade show" role="alert" *ngFor="let mensaje of mensajes">
+  <strong>{{mensaje.anu_titulo}}:</strong> {{mensaje.anu_mensaje}} 
+<!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>-->
 </div>
 </div>
 
@@ -122,6 +112,7 @@
 
 
 <!-- Ventana Modal para las notoficaciones -->
+<!--<ng-template [ngIf]="mensajes != null">-->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -130,7 +121,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        Nuevas actualizaciones
+        Tiene nuevas notificaciones
       </div>
       <div class="modal-footer">
         <button type="button" class="btn" style="background-color:  #08A75A; color:#ffffff;" data-bs-dismiss="modal">Aceptar</button>
@@ -138,7 +129,7 @@
     </div>
   </div>
 </div>  
-
+<!--</ng-template>-->
 
 
 

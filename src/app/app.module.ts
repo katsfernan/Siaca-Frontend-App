@@ -16,6 +16,8 @@ import { FormulariosComponent } from './components/user/doc/formularios/formular
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AnunciosComponent } from './components/user/anuncios/anuncios.component';
+import {AccordionModule} from 'primeng/accordion'; 
+import {MenuItem} from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import { AnunciosComponent } from './components/user/anuncios/anuncios.component
     SweetAlert2Module.forRoot(),
     ModalModule.forRoot(),
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AccordionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

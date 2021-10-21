@@ -71,7 +71,9 @@ export class RecibosDePagoComponent implements OnInit {
     doc.rect(165, 65, 35, 110);
     doc.rect(200, 65, 35, 110);
     doc.rect(235, 65, 35, 110);
-
+    let img = new Image();
+    img.src = 'assets/logo_factura.jpeg';
+    doc.addImage(img, 'jpeg', 12, 12, 45, 25);
     doc.setFontSize(12);
     doc.setFont('helvetica', 'bold');
     doc.text("SERVICIOS INTEGRALES AERONAUTICOS, C.A.", 60, 18);

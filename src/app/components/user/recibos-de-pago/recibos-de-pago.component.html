@@ -22,7 +22,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let recibo of recibos | paginate: { itemsPerPage: 20, currentPage: paginaActual }" (click)="onClick(recibo.reci_num)">
+        <tr *ngFor="let recibo of recibos | paginate: { itemsPerPage: 20, currentPage: paginaActual }" (click)="onClick(recibo.reci_num)" style="cursor: pointer;">
             <th scope="row">{{recibo.reci_num}}</th>
             <td>{{recibo.date}}</td>
         </tr>

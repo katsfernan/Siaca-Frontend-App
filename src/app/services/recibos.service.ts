@@ -17,6 +17,7 @@ export class RecibosService {
     return this.http.get<any>('http://127.0.0.1:8000/empleado/recibos-de-pago/', {headers: header});
   }
 
+  //get que devuelve un recibo de pago específico
   getRecibo(reci_num: number): Observable<any>{
     let header = new HttpHeaders({'Authorization': 'Token ' + sessionStorage.getItem('token')});
     return this.http.get<any>('http://127.0.0.1:8000/empleado/recibos-de-pago/'+reci_num.toString(), {headers: header});

@@ -45,6 +45,7 @@ const routes: Routes = [
   "anuncios", 
   component: AnunciosComponent, 
   canActivate:[AuthGuard]},
+  
 {path:
   "recibos-de-pago",
   component: RecibosDePagoComponent,

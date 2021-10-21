@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { RecibosService } from 'src/app/services/recibos.service';
-import { Anuncio, Mensaje, Actualizar } from 'src/app/models/anuncios.interface';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { jsPDF } from "jspdf";
@@ -14,25 +13,32 @@ export class RecibosDePagoComponent implements OnInit {
 
 
 
-  //Objeto que trae los datos del anuncio
+  //Objeto que trae los datos de los Recibos de Pago
   Form = new FormGroup({
     fecha_ini : new FormControl('', Validators.required),
     fecha_fin : new FormControl('', Validators.required),
   });
 
-  //variable que guarda el rol del usuario
+  //variable que guarda la lista de Recibos de Pago
   recibos!: any;
   recibo!: any;
+
+ //Variable que guarda el número de página de la paginación de la tabla
   paginaActual : number = 1;
+
   constructor(public reciboService: RecibosService, private router: Router) {
   }
+  
 
   ngOnInit(): void {
+    // Llamada a la Lista de Recibos de Pago
     this.reciboService.getRecibos().subscribe((data) => {
-      this.recibos! = data
+    this.recibos! = data
     });
   }
 
+
+  //Método para pasar el recibo seleccionado a PDF
   onClick(reci_num: number){
     this.reciboService.getRecibo(reci_num).subscribe((data) => {
       this.recibo! = data
@@ -40,6 +46,8 @@ export class RecibosDePagoComponent implements OnInit {
     });
   }
 
+
+  //Método para convertir en string la fecha del recibo
   parseDate(date: Date): string{
     let dd : any = date.getDate();
     let mm : any = date.getMonth() + 1;
@@ -53,6 +61,8 @@ export class RecibosDePagoComponent implements OnInit {
     return dd + '/' + mm + '/' + yyyy;
   }
 
+
+  //Método para convertir en PDF los recibos 
   printPDF(response: any){
  
     var doc = new jsPDF({

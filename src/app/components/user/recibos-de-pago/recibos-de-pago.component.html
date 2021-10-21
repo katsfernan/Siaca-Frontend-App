@@ -14,13 +14,16 @@
 <strong><h1 class="titulo">Recibos de Pagos</h1></strong> 
 
 <div class="contenedor">
+    <!--Tabla de Recibos de Pago-->
     <table class="table table-bordered table-hover border-success text-center">
         <thead>
+        <!--Titulos de la tabla de Recibos de Pago-->
         <tr>
             <th scope="col" >N° de recibo</th>
             <th scope="col">Fecha</th>
         </tr>
         </thead>
+        <!--Lista de Recibos de Pago-->
         <tbody>
         <tr *ngFor="let recibo of recibos | paginate: { itemsPerPage: 20, currentPage: paginaActual }" (click)="onClick(recibo.reci_num)" style="cursor: pointer;">
             <th scope="row">{{recibo.reci_num}}</th>
@@ -28,12 +31,12 @@
         </tr>
         </tbody>
     </table>
+    <!--Paginación de la lista-->
     <div class="d-flex justify-content-center">
         <pagination-controls 
             (pageChange)="paginaActual = $event"
             previousLabel="Anterior"
-            nextLabel="Siguiente"
-        >
+            nextLabel="Siguiente">
         </pagination-controls>
     </div>
 </div>

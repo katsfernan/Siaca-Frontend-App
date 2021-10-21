@@ -18,6 +18,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AnunciosComponent } from './components/user/anuncios/anuncios.component';
 import {AccordionModule} from 'primeng/accordion'; 
 import {MenuItem} from 'primeng/api';
+import { RecibosDePagoComponent } from './components/user/recibos-de-pago/recibos-de-pago.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import {MenuItem} from 'primeng/api';
     FiltroPipe,
     ManualesAdministrativosComponent,
     FormulariosComponent,
-    AnunciosComponent
+    AnunciosComponent,
+    RecibosDePagoComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +41,7 @@ import {MenuItem} from 'primeng/api';
     FormsModule,
     SweetAlert2Module.forRoot(),
     ModalModule.forRoot(),
+    NgxPaginationModule,
     HttpClientModule,
     ReactiveFormsModule,
     AccordionModule

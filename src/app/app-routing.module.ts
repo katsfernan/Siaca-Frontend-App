@@ -8,6 +8,7 @@ import { ManualesAdministrativosComponent } from "src/app/components/user/doc/ma
 import { FormulariosComponent } from "src/app/components/user/doc/formularios/formularios.component";
 import { AnunciosComponent } from './components/user/anuncios/anuncios.component';
 import { AuthGuard } from './guards/auth.guard';
+import { RecibosDePagoComponent } from './components/user/recibos-de-pago/recibos-de-pago.component';
 
 const routes: Routes = [
 
@@ -43,8 +44,11 @@ const routes: Routes = [
 {path: 
   "anuncios", 
   component: AnunciosComponent, 
+  canActivate:[AuthGuard]},
+{path:
+  "recibos-de-pago",
+  component: RecibosDePagoComponent,
   canActivate:[AuthGuard]}
-
   ];
 
 @NgModule({

@@ -25,7 +25,7 @@
         </thead>
         <!--Lista de Recibos de Pago-->
         <tbody>
-        <tr *ngFor="let recibo of recibos | paginate: { itemsPerPage: 20, currentPage: paginaActual }" (click)="onClick(recibo.reci_num)" style="cursor: pointer;">
+        <tr *ngFor="let recibo of recibos | paginate: { itemsPerPage: 20, currentPage: paginaActual }" (click)="onClick(recibo.reci_num, recibo.date)" style="cursor: pointer;">
             <th scope="row">{{recibo.reci_num}}</th>
             <td>{{recibo.date}}</td>
         </tr>

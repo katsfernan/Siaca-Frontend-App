@@ -39,11 +39,22 @@ export class RecibosDePagoComponent implements OnInit {
 
 
   //Método para pasar el recibo seleccionado a PDF
-  onClick(reci_num: number){
-    this.reciboService.getRecibo(reci_num).subscribe((data) => {
-      this.recibo! = data
-      this.printPDF(this.recibo)
-    });
+  onClick(reci_num: number, date: string){
+    let fecha : any = date.split("/");
+    fecha = new Date(+fecha[2], fecha[1] - 1, +fecha[0]);
+    let fechaReconv = new Date("10/01/2021");
+    if ( fecha >= fechaReconv){
+      this.reciboService.getReciboReconv(reci_num).subscribe((data) => {
+        this.recibo! = data
+        this.printPDF(this.recibo)
+      });
+    }
+    else{
+      this.reciboService.getRecibo(reci_num).subscribe((data) => {
+        this.recibo! = data
+        this.printPDF(this.recibo)
+      });
+    }
   }
 
 

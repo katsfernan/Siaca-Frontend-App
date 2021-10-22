@@ -1,0 +1,70 @@
+
+
+
+
+<html>
+
+
+    <head>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+    </head>
+    
+    <body>
+    
+    <!-- Navbar -->  
+    <app-navbar></app-navbar>
+      
+    
+        <!--Titulo -->
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="container">
+          <div class="row">
+             <h3 ><b>Comprobantes de retención IVA Proveedor:</b> {{pagoRetencionesIva[0].provDesc | titlecase }} </h3>
+          </div>
+        </div>
+        
+        <br>
+        <div class="container-fluid ">
+          <div class="row">
+            <div class="col-1"></div>
+              <div class="col-10 main-content">  
+                <table class="table table-striped table-hover">
+                    <thead class="table-dark">
+                      <tr>
+                        <th scope="col">Número documento</th>
+                        <th scope="col">Periodo</th>
+                        <th scope="col">Fecha emisión</th>
+                        <th scope="col">N° control</th>
+                        <th scope="col">Base imponible</th>
+                        <th scope="col">Monton retención</th>
+                        <th scope="col">N° comprobante</th>
+                        <th scope="col"></th>
+                      </tr>
+                    </thead>
+                    <tbody *ngFor="let reten of pagoRetencionesIva; index as i">
+                      <tr>
+                          <td scope="col">{{reten.pagRetIva_doc_num}}</td>
+                          <td scope="col">{{reten.pagRetIva_periodo}}</td>
+                          <td scope="col">{{reten.pagRetIva_fecha_doc | date:'dd/MM/yy'}}</td>
+                          <td scope="col">{{reten.pagRetIva_doc_num_control}}</td>
+                          <td scope="col">{{reten.pagRetIva_base_imponible | number}}</td>
+                          <td scope="col">{{reten.pagRetIva_monto_ret_imp | number}}</td>
+                          <td scope="col">{{reten.pagRetIva_num_comprobante}}</td>
+                          <td><button type="button" class="btn btn-success">Importar en PDF</button> </td>
+                          
+                          <!--<th scope="row">{{i+1}}</th>--> 
+
+                      </tr>
+                </table>
+               </div>
+              <div class="col-1"></div>
+            </div>
+          </div>
+
+    
+      </body>
+    

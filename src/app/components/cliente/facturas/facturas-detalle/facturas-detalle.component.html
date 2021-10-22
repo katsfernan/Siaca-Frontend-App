@@ -1,0 +1,104 @@
+<html>
+
+<head>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+</head>
+
+<body>
+  <app-navbar></app-navbar>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+<div class="container">
+  <h1 class="titulo">Cliente: {{facturaDetalle.encabezado.clienteDesc | titlecase}} </h1>
+
+</div>
+
+    <br>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-1"></div>
+          <div class="col-10 main-content">
+            <div class="card">
+              <h3 class="card-header">Factura N°: {{facturaDetalle.encabezado.fac_doc_num}}</h3>
+                <div class="card-body">
+                  <h3 class="card-title"> </h3>
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-6">
+                          <p class="card-text"><b>Fecha de emisión: </b>{{facturaDetalle.encabezado.fac_fecha_emi | date:'dd/MM/yy'}}</p>
+                        </div>
+                        <div class="col-6">
+                          <p class="card-text"><b>Fecha de vencimiento: </b> {{facturaDetalle.encabezado.fac_fecha_venc | date:'dd/MM/yy'}}</p>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-6">
+                          <p class="card-text"><b>N° control: </b>{{facturaDetalle.encabezado.fac_num_control}}</p>
+                        </div>
+                        <div class="col-6">
+                          <p class="card-text"><b>Monto total factura: </b>{{facturaDetalle.encabezado.fac_monto_total | number}} BsS.</p>
+                        </div>
+                      </div>
+                   </div>
+                   <br>
+                  </div>
+
+                  <div class="card-footer text-muted">
+                  <!-- Tabla -->
+                  <div class="container-fluid">
+                    <table class="card-table table">
+                     <thead>
+                       <tr class="table">
+                         <th scope="col">N° Ítem</th>
+                         <th scope="col">Código</th>
+                         <th scope="col">Cantidad ítem</th>
+                         <th scope="col">Precio unitario</th>
+                         <th scope="col">Monto impuesto</th>
+                         <th scope="col">Monto total ítem</th>
+                         <th scope="col">Comentario </th>
+                       </tr>
+                     </thead>
+                     <tbody *ngFor="let renglon of facturaDetalle.renglon; index as i">
+                       <tr>  
+                         <td>{{renglon.facren_reng_num}}</td>
+                           <td>{{renglon.articuloDesc}}</td>
+                           <td>{{renglon.facren_total_art}}</td>
+                           <td>{{renglon.facren_precio_venta | number }}</td>
+                           <td>{{renglon.facren_monto_imp | number}}</td>
+                           <td>{{renglon.facren_reng_neto | number}}</td>
+                           <td>
+                             <div  *ngIf="renglon.facren_comentario; else noComentario">
+                               <button type="button" class="btn btn-success" 
+                               (click)="open('Comentario:',renglon.facren_comentario)">
+                                 COMENTARIO
+                               </button>
+                               <ng-template #modalWindow let-modal >
+                                 <app-modal></app-modal>
+                               </ng-template>
+                             </div>
+             
+                             <ng-template #noComentario>
+                               <button type="button" class="btn btn-secondary" disabled>SIN COMENTARIO</button>
+                             </ng-template>
+                           </td>
+                       </tr>
+                     </tbody>
+                   </table>
+                   </div>
+                   <!-- Fin tabla  -->
+                  </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+  </body>
+
+ 
+

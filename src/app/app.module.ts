@@ -20,6 +20,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { AnunciosComponent } from './components/user/anuncios/anuncios.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import {FacturasDetalleComponent} from './components/cliente/facturas/facturas-detalle/facturas-detalle.component'
+import { FacturasComponent } from './components/cliente/facturas/listaFacturas/facturas.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ModalComponent } from './components/modal/modal.component';
+import { ListaRetencionesComponent } from './components/proveedor/retenciones/lista-retenciones/lista-retenciones.component';
+import { RetencionesComponent } from './components/PDFGenerator/cliente/retenciones/retenciones.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +40,12 @@ import { AnunciosComponent } from './components/user/anuncios/anuncios.component
     FiltroPipe,
     ManualesAdministrativosComponent,
     FormulariosComponent,
-    AnunciosComponent
+    AnunciosComponent,
+    FacturasComponent,
+    FacturasDetalleComponent,
+    ModalComponent,
+    ListaRetencionesComponent,
+    RetencionesComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +55,9 @@ import { AnunciosComponent } from './components/user/anuncios/anuncios.component
     ModalModule.forRoot(),
     HttpClientModule,
     ReactiveFormsModule,
-    PdfViewerModule
+    PdfViewerModule,
+    BrowserAnimationsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

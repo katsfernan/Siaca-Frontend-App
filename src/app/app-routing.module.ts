@@ -8,6 +8,10 @@ import { ManualesAdministrativosComponent } from "src/app/components/user/doc/ma
 import { FormulariosComponent } from "src/app/components/user/doc/formularios/formularios.component";
 import { AnunciosComponent } from './components/user/anuncios/anuncios.component';
 import { AuthGuard } from './guards/auth.guard';
+import { FacturasComponent } from './components/cliente/facturas/listaFacturas/facturas.component';
+import { FacturasDetalleComponent } from './components/cliente/facturas/facturas-detalle/facturas-detalle.component';
+import { ListaRetencionesComponent } from './components/proveedor/retenciones/lista-retenciones/lista-retenciones.component';
+import { RetencionesComponent } from './components/PDFGenerator/cliente/retenciones/retenciones.component';
 
 const routes: Routes = [
 
@@ -17,9 +21,17 @@ const routes: Routes = [
 {path: "manuales", component: ManualesComponent, canActivate:[AuthGuard]},
 {path: "manuales-administrativos", component: ManualesAdministrativosComponent, canActivate:[AuthGuard]},
 {path: "formularios", component: FormulariosComponent, canActivate:[AuthGuard]},
-{path: "anuncios", component: AnunciosComponent, canActivate:[AuthGuard]}
+{path: "anuncios", component: AnunciosComponent, canActivate:[AuthGuard]},
 
-  ];
+/*Clientes*/
+{path: "facturas", component: FacturasComponent, canActivate:[AuthGuard]},
+{path: "facturas/detalle/:id", component: FacturasDetalleComponent, canActivate:[AuthGuard]},
+
+/*Proveedores*/
+{path: "retenciones", component: ListaRetencionesComponent, canActivate:[AuthGuard]},
+  
+{path: "test", component: RetencionesComponent},
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

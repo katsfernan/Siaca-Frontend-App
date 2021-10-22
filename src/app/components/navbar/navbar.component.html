@@ -86,24 +86,31 @@
           </li>
       
 
-     <ng-template [ngIf]="data == '1' || data == '54' || data == '55' ">
+     <ng-template [ngIf]="data == '1' ||  data == '55' ">
     <!-- Octavo item -->
     <li class="nav-item">
-      <a class="nav-link" aria-current="page" href="#" style="color:#08A75A"><i class="fa fa-folder-open" aria-hidden="true"></i> Retenciones</a>
+      <a class="nav-link" aria-current="page" href="/retenciones" style="color:#08A75A"><i class="fa fa-folder-open" aria-hidden="true"></i> Retenciones</a>
     </li>
      </ng-template>
 
       <!-- Noveno item -->
-     <ng-template [ngIf]="data == '1' || data == '55'">
+     <ng-template [ngIf]="data == '1' ">
       <li class="nav-item">
         <a class="nav-link" aria-current="page" href="#" style="color:#08A75A"><i class="fa fa-handshake-o" aria-hidden="true"></i> Servicios Prestados</a>
       </li>
     </ng-template>
 
       <!-- Decimo item -->
-      <ng-template [ngIf]="data != '54'">
+      <ng-template [ngIf]="data != '54' && data != '55' ">
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="#" style="color:#08A75A"><i class="fa fa-wpforms" aria-hidden="true"></i> Recibos de pago</a>
+        </li>
+        </ng-template>
+
+      <!-- Decimo primer item -->
+      <ng-template [ngIf]="data == '1' || data  == '54'">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/facturas" style="color:#08A75A"><i class="fa fa-book" aria-hidden="true"></i> Facturas</a>
         </li>
         </ng-template>
 

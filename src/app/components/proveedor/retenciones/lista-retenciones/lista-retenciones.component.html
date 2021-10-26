@@ -42,7 +42,6 @@
                         <th scope="col">Base imponible</th>
                         <th scope="col">Monton retención</th>
                         <th scope="col">N° comprobante</th>
-                        <th scope="col"></th>
                       </tr>
                     </thead>
                     <tbody *ngFor="let reten of pagoRetencionesIva; index as i">
@@ -54,7 +53,6 @@
                           <td scope="col">{{reten.pagRetIva_base_imponible | number}}</td>
                           <td scope="col">{{reten.pagRetIva_monto_ret_imp | number}}</td>
                           <td scope="col">{{reten.pagRetIva_num_comprobante}}</td>
-                          <td><button type="button" class="btn btn-success">Importar en PDF</button> </td>
                           
                           <!--<th scope="row">{{i+1}}</th>--> 
 

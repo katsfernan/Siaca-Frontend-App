@@ -70,7 +70,7 @@
                            <td>{{renglon.facren_monto_imp | number}}</td>
                            <td>{{renglon.facren_reng_neto | number}}</td>
                            <td>
-                             <div  *ngIf="renglon.facren_comentario; else noComentario">
+                             <div  *ngIf="renglon.facren_comentario">
                                <button type="button" class="btn btn-success" 
                                (click)="open('Comentario:',renglon.facren_comentario)">
                                  COMENTARIO
@@ -79,10 +79,7 @@
                                  <app-modal></app-modal>
                                </ng-template>
                              </div>
-             
-                             <ng-template #noComentario>
-                               <button type="button" class="btn btn-secondary" disabled>SIN COMENTARIO</button>
-                             </ng-template>
+  
                            </td>
                        </tr>
                      </tbody>

@@ -12,9 +12,11 @@ import { FacturasService } from 'src/app/services/clientes/facturas.service';
 })
 export class FacturasComponent implements OnInit {
 
-  public facturas = <FacturaVenta[]> {};
+  public facturas! : FacturaVenta[] ;
   
-  constructor(private service:FacturasService) { }
+  constructor(private service:FacturasService) { 
+
+  }
 
   ngOnInit(): void {
     this.obtenerFacturas();

@@ -11,6 +11,7 @@
     <br>
     <br>
     <br>
+    
 <div class="container">
   <h1 class="titulo">Cliente: {{facturaDetalle.encabezado.clienteDesc | titlecase}} </h1>
 
@@ -80,7 +81,13 @@
                                </ng-template>
                              </div>
   
-                           </td>
+                          </td>
+
+                          <td>
+                            <button type="button" (click)=imprimirPDF()>
+                                PDF
+                            </button>
+                          </td>
                        </tr>
                      </tbody>
                    </table>

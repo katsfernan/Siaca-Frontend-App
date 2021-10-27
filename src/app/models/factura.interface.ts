@@ -9,6 +9,9 @@ export interface FacturaVenta {
     "fac_monto_imp": number,
     "fac_monto_total": number,
     "clienteDesc":string,
+    "clienteDocNum":string,
+    "clienteDireccion":string,
+    "clienteTelefonos":string,
     "condicionPagoDesc":string,
 
 }
@@ -25,6 +28,7 @@ export interface FacturaVentaRenglon {
     "facren_pendiente": number, 
     "facren_comentario": string,
     "facren_fac_doc_fk": number,
+    "articuloCod": string,
     "articuloDesc": string
 }
 

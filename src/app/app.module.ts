@@ -27,7 +27,6 @@ import { FacturasComponent } from './components/cliente/facturas/listaFacturas/f
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ModalComponent } from './components/modal/modal.component';
 import { ListaRetencionesComponent } from './components/proveedor/retenciones/lista-retenciones/lista-retenciones.component';
-import { RetencionesComponent } from './components/PDFGenerator/cliente/retenciones/retenciones.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +44,6 @@ import { RetencionesComponent } from './components/PDFGenerator/cliente/retencio
     FacturasDetalleComponent,
     ModalComponent,
     ListaRetencionesComponent,
-    RetencionesComponent,
   ],
   imports: [
     BrowserModule,

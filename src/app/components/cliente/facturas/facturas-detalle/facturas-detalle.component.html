@@ -11,19 +11,40 @@
     <br>
     <br>
     <br>
-    
-<div class="container">
-  <h1 class="titulo">Cliente: {{facturaDetalle.encabezado.clienteDesc | titlecase}} </h1>
 
-</div>
+    <div class="container" *ngIf="datosCargados">
+      <h1 class="titulo">Cliente: {{facturaDetalle.encabezado.clienteDesc | titlecase}} </h1>
+    </div>
+
 
     <br>
     <div class="container-fluid">
       <div class="row">
         <div class="col-1"></div>
           <div class="col-10 main-content">
-            <div class="card">
-              <h3 class="card-header">Factura N°: {{facturaDetalle.encabezado.fac_doc_num}}</h3>
+            
+              <div class="alert alert-danger alert-dismissible" role="alert" *ngIf="errorStatus">
+                <span type="button" class="close" data-bs-dismiss="alert" aria-label="Close" style="font-size: 25px;"><span aria-hidden="true">&times;</span></span>
+                <b>{{errorMensaje}} </b>
+              </div>
+
+
+
+            <div class="card" *ngIf="datosCargados">
+              <div class="card-header">
+              <div class="row justify-content-around">
+                <div class="col-11">
+                  <h3 >Factura N°: {{facturaDetalle.encabezado.fac_doc_num}}</h3>
+                </div>
+
+                <div class="col-1">
+                    <button type="button" class="btn btn-success" (click)=imprimirPDF()>
+                      PDF
+                    </button>
+                </div>
+              </div>
+              </div>
+
                 <div class="card-body">
                   <h3 class="card-title"> </h3>
                     <div class="container">
@@ -82,12 +103,6 @@
                              </div>
   
                           </td>
-
-                          <td>
-                            <button type="button" (click)=imprimirPDF()>
-                                PDF
-                            </button>
-                          </td>
                        </tr>
                      </tbody>
                    </table>
@@ -96,6 +111,8 @@
                   </div>
 
                 </div>
+              
+                
             </div>
         </div>
     </div>

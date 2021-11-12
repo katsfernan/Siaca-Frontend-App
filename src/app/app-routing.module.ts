@@ -11,7 +11,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { FacturasComponent } from './components/cliente/facturas/listaFacturas/facturas.component';
 import { FacturasDetalleComponent } from './components/cliente/facturas/facturas-detalle/facturas-detalle.component';
 import { ListaRetencionesComponent } from './components/proveedor/retenciones/lista-retenciones/lista-retenciones.component';
-import { RetencionesComponent } from './components/PDFGenerator/cliente/retenciones/retenciones.component';
+
 
 const routes: Routes = [
 
@@ -30,7 +30,7 @@ const routes: Routes = [
 /*Proveedores*/
 {path: "retenciones", component: ListaRetencionesComponent, canActivate:[AuthGuard]},
   
-{path: "test", component: RetencionesComponent},
+
 ];
 
 @NgModule({

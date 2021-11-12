@@ -29,6 +29,13 @@ export class FacturasDetalleComponent implements OnInit {
 
   public facturaRenglones : FacturaVentaRenglon[] = [];
 
+  public datosCargados: boolean = false;
+
+  public errorStatus:boolean = false;
+
+  public errorMensaje:any = "";
+
+
 
   title = 'ng-bootstrap-modal-demo';
   closeResult: string | undefined;
@@ -46,8 +53,26 @@ export class FacturasDetalleComponent implements OnInit {
      }
 
   ngOnInit(): void {
+    
+    this.obtenerFacturaDetalle()
+
+  }
+
+  obtenerFacturaDetalle(){
     let facturaId: number  = parseInt(this.activerouter.snapshot.paramMap.get('id')!);
-    this.service.facturaDetalle(facturaId).subscribe(response => this.facturaDetalle! = response)
+    this.service.facturaDetalle(facturaId).subscribe((response) => {
+      this.datosCargados = true
+      this.facturaDetalle = response
+      console.log(response)
+      console.log(this.datosCargados)
+      },
+      (error) => {   
+        this.errorStatus = true
+        this.errorMensaje = error.error
+        console.log (error.error)
+      }
+    )
+  
 
   }
 
@@ -108,9 +133,7 @@ export class FacturasDetalleComponent implements OnInit {
     let y : number = 10
     
     let enc: any = this.facturaDetalle.encabezado
-    let reng: any = this.facturaDetalle.renglon
 
-  
     pdf.setFontSize(8);
     pdf.setFont('helvetica');
     pdf.text('Cliente: ' + enc.clienteDesc, x+10, y + 5)

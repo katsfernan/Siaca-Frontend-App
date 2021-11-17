@@ -9,6 +9,9 @@ import { FormulariosComponent } from "src/app/components/user/doc/formularios/fo
 import { AnunciosComponent } from './components/user/anuncios/anuncios.component';
 import { AuthGuard } from './guards/auth.guard';
 import { RecibosDePagoComponent } from './components/user/recibos-de-pago/recibos-de-pago.component';
+import { FacturasComponent } from './components/cliente/facturas/listaFacturas/facturas.component';
+import { FacturasDetalleComponent } from './components/cliente/facturas/facturas-detalle/facturas-detalle.component';
+import { ListaRetencionesComponent } from './components/proveedor/retenciones/lista-retenciones/lista-retenciones.component';
 
 const routes: Routes = [
 
@@ -49,7 +52,14 @@ const routes: Routes = [
 {path:
   "recibos-de-pago",
   component: RecibosDePagoComponent,
-  canActivate:[AuthGuard]}
+  canActivate:[AuthGuard]},
+
+  /*Clientes*/
+{path: "facturas", component: FacturasComponent, canActivate:[AuthGuard]},
+{path: "facturas/detalle/:id", component: FacturasDetalleComponent, canActivate:[AuthGuard]},
+
+/*Proveedores*/
+{path: "retenciones", component: ListaRetencionesComponent, canActivate:[AuthGuard]},
   ];
 
 @NgModule({

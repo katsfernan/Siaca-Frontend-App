@@ -21,6 +21,14 @@ import {MenuItem} from 'primeng/api';
 import { RecibosDePagoComponent } from './components/user/recibos-de-pago/recibos-de-pago.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import {FacturasDetalleComponent} from './components/cliente/facturas/facturas-detalle/facturas-detalle.component'
+import { FacturasComponent } from './components/cliente/facturas/listaFacturas/facturas.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ModalComponent } from './components/modal/modal.component';
+import { ListaRetencionesComponent } from './components/proveedor/retenciones/lista-retenciones/lista-retenciones.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +41,11 @@ import {NgxPaginationModule} from 'ngx-pagination';
     ManualesAdministrativosComponent,
     FormulariosComponent,
     AnunciosComponent,
-    RecibosDePagoComponent
+    RecibosDePagoComponent,
+    FacturasComponent,
+    FacturasDetalleComponent,
+    ModalComponent,
+    ListaRetencionesComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +56,10 @@ import {NgxPaginationModule} from 'ngx-pagination';
     NgxPaginationModule,
     HttpClientModule,
     ReactiveFormsModule,
-    AccordionModule
+    AccordionModule,
+    //PdfViewerModule,
+    BrowserAnimationsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

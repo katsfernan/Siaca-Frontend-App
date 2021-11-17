@@ -27,3 +27,19 @@ export interface UserResponse{
         "permissions": Permisos
     }
 }
+
+export interface Proveedor {
+    "pro_rif": number,
+    "pro_descripcion": string,
+    "pro_direc1": string,
+    "pro_direc2": string | null,
+    "pro_estatus": boolean,
+    "rol": {
+        "rol_id": number,
+        "rol_nombre": string,
+        "rol_descripcion": string,
+        "rol_fecha_modif": Date,
+        "rol_estatus": boolean
+    }
+
+}

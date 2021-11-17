@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { RecibosService } from 'src/app/services/recibos.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { jsPDF } from "jspdf";
 
+declare var require: any
+const JSPDF = require('jspdf')
+import 'jspdf-autotable'
 @Component({
   selector: 'app-recibos-de-pago',
   templateUrl: './recibos-de-pago.component.html',
@@ -76,7 +78,7 @@ export class RecibosDePagoComponent implements OnInit {
   //Método para convertir en PDF los recibos 
   printPDF(response: any){
  
-    var doc = new jsPDF({
+    var doc = new JSPDF({
       orientation: "l",
       format: "letter"
     });

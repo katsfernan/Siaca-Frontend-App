@@ -1,3 +1,5 @@
+import { Proveedor } from "./user.interface";
+
 export interface PagoRetencionIva {
     "pagRetIva_doc_num": number,
     "pagRetIva_periodo": string,
@@ -13,3 +15,22 @@ export interface PagoRetencionIva {
     "provRif":string,
     "provDireccion": string
 } 
+
+export interface PagoRetencionISLR {
+    "pagRentReng_co_islr": string,
+    "pagRentReng_monto": number,
+    "pagRentReng_monto_reten": number,
+    "pagRentReng_sustraendo": number,
+    "pagRentReng_porc_retn": number,
+
+    "fecha": Date,
+    "numPago": string,
+    "tipoPago": string,
+    "nroDoc": string,
+}
+
+export interface PagoRetencionISLRReporte {
+    "proveedor" : Proveedor,
+    "pagos": PagoRetencionISLR[]
+}
+

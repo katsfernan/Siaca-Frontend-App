@@ -1,1 +1,174 @@
-<p>lista-retenciones works!</p>
+
+
+
+
+<html>
+
+
+    <head>
+       
+    </head>
+
+    
+    <body>
+    
+    <!-- Navbar -->  
+    <app-navbar></app-navbar>
+      
+    
+        <!--Titulo -->
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+
+        <div class="container" *ngIf=" data!=='1' && !datosCargados ">
+
+            <div class="row">
+                <h3 > <b>Selecciona un rango de fechas:</b> </h3>
+                <br>
+                <br>
+                <br>
+
+                <form class="form-inline" [formGroup] = "retenciones_proveedor_form" (ngSubmit)="getRetencionesISLR(retenciones_proveedor_form.value)">
+
+                        <div class="form-group col-sm-6">
+                        <div class="input-group">
+                            <input class="form-control" placeholder="Inicio"
+                                formControlName="fecha_i" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+                            <div class="input-group-append">
+                            <button class="btn btn-outline-secondary calendar calendar fa fa-calendar" (click)="d.toggle()" type="button"></button>
+                            </div>
+                        </div>
+                        </div>
+                        <br>
+                        <br>
+
+                        <div class="form-group col-sm-6">
+                            <div class="input-group">
+                            <input class="form-control" placeholder="Fin"
+                            formControlName="fecha_f" [(ngModel)]="model2" ngbDatepicker #d2="ngbDatepicker">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary calendar calendar fa fa-calendar" (click)="d2.toggle()" type="button"></button>
+                            </div>
+                            </div>
+                        </div>
+
+                        <br>
+                        <br>
+                        
+
+                        <div class="container">
+                            <div class="row">
+                                <button type="submit" class="btn btn-success col-sm-1">Enviar</button>
+                            </div>
+                        </div>
+
+                    
+                  </form>
+            </div>
+
+        </div>
+
+        <div class="container-fluid " *ngIf=" data!=='1' && datosCargados" >
+            <div class="row">
+              <div class="col-1"></div>
+                <div class="col-10 main-content">
+                  
+                    <div class="alert alert-danger alert-dismissible" role="alert" *ngIf="errorStatus">
+                      <span type="button" class="close" data-bs-dismiss="alert" aria-label="Close" style="font-size: 25px;"><span aria-hidden="true">&times;</span></span>
+                      <b>{{errorMensaje}} </b>
+                    </div>
+      
+      
+      
+                  <div class="card" *ngIf="datosCargados">
+                    <div class="card-header">
+                    <div class="row justify-content-around">
+                      <div class="col-11">
+                        <h3 >Cliente: {{pagoRetencionesISLR.proveedor.pro_descripcion | titlecase }}</h3>
+                      </div>
+      
+                      <div class="col-1">
+                          <button type="button" class="btn btn-success" (click) =  imprimirPDF(pagoRetencionesISLR) >
+                            PDF
+                          </button>
+                      </div>
+                    </div>
+                    </div>
+      
+                      <div class="card-body">
+                        <h3 class="card-title"> </h3>
+                          <div class="container">
+                            <div class="row">
+                              <div class="col-6">
+                                <p class="card-text"><b>RIF: </b>{{pagoRetencionesISLR.proveedor.pro_rif}}</p>
+                              </div>
+                              <div class="col-6">
+                                <p class="card-text"><b>Fecha: </b> Desde {{pagoRetencionesISLR.fecha_i}} Hasta {{pagoRetencionesISLR.fecha_f}} </p>
+                              </div>
+                            </div>
+                            <br>
+                            
+                            <div class="row">
+                              <div class="col-12">
+                                <p class="card-text"><b>Dirección: </b>{{pagoRetencionesISLR.proveedor.pro_direc1 | titlecase }} </p>
+                              </div>
+                            </div>
+                         </div>
+                         <br>
+                        </div>
+      
+                        <div class="card-footer text-muted">
+                        <!-- Tabla -->
+                        <div class="container-fluid">
+                          <table class="card-table table">
+                           <thead>
+                             <tr class="table">
+                               <th scope="col">Fecha</th>
+                               <th scope="col">Número Pago</th>
+                               <th scope="col">Tipo</th>
+                               <th scope="col">N° Doc.</th>
+                               <th scope="col">N° Control</th>
+                               <th scope="col">Monto de Documento</th>
+                               <th scope="col">Monto Abonado</th>
+                               <th scope="col">Monto Objeto a Retención</th>
+                               <th scope="col">Tarifa %</th>
+                               <th scope="col">Código Concepto</th>
+                               <th scope="col">Sutraendo</th>
+                               <th scope="col">Impuesto Retenido</th>
+                             </tr>
+                           </thead>
+                           <tbody *ngFor="let renglon of pagoRetencionesISLR.pagos_retencion_islr; index as i">
+                             <tr>  
+                               <td>{{renglon.fecha}}</td>
+                                 <td>{{renglon.numPago}}</td>
+                                 <td>{{renglon.tipoPago}}</td>
+                                 <td>{{renglon.nroDoc  }}</td>
+                                 <td>----</td>
+                                 <td>{{renglon.pagRentReng_monto}}</td>
+                                 <td>{{renglon.pagRentReng_monto}}</td>
+                                 <td>{{renglon.pagRentReng_monto}}</td>
+                                 <td>{{renglon.pagRentReng_porc_retn}}</td>
+                                 <td>{{renglon.pagRentReng_co_islr}}</td>
+                                 <td>{{renglon.pagRentReng_sustraendo}}</td>
+                                 <td>{{renglon.pagRentReng_monto_reten}}</td>
+                             </tr>
+                           </tbody>
+                         </table>
+                         </div>
+                         <!-- Fin tabla  -->
+                        </div>
+      
+                      </div>
+                    
+                      
+                  </div>
+              </div>
+          </div>
+
+    
+      </body>
+    

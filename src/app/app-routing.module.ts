@@ -12,6 +12,7 @@ import { RecibosDePagoComponent } from './components/user/recibos-de-pago/recibo
 import { FacturasComponent } from './components/cliente/facturas/listaFacturas/facturas.component';
 import { FacturasDetalleComponent } from './components/cliente/facturas/facturas-detalle/facturas-detalle.component';
 import { ListaRetencionesComponent } from './components/proveedor/retenciones/lista-retenciones/lista-retenciones.component';
+import { ListaRetencionesISLRComponent } from './components/proveedor/retencionesISLR/lista-retenciones/lista-retencionesISLR.component';
 
 const routes: Routes = [
 
@@ -60,7 +61,11 @@ const routes: Routes = [
 
 /*Proveedores*/
 {path: "retenciones", component: ListaRetencionesComponent, canActivate:[AuthGuard]},
-  ];
+
+{path: "retencionesISLR", component: ListaRetencionesISLRComponent, canActivate:[AuthGuard]},
+
+
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

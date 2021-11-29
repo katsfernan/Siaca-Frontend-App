@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ListaRetencionesComponent } from './lista-retenciones.component';
+import { ListaRetencionesISLRComponent } from './lista-retencionesISLR.component';
 
 describe('ListaRetencionesComponent', () => {
-  let component: ListaRetencionesComponent;
-  let fixture: ComponentFixture<ListaRetencionesComponent>;
+  let component: ListaRetencionesISLRComponent;
+  let fixture: ComponentFixture<ListaRetencionesISLRComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ListaRetencionesComponent ]
+      declarations: [ ListaRetencionesISLRComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ListaRetencionesComponent);
+    fixture = TestBed.createComponent(ListaRetencionesISLRComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

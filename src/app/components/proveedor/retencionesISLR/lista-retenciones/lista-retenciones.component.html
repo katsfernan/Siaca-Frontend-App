@@ -23,6 +23,7 @@
         <br>
         <br>
 
+          <!-- Tarjeta para Proveedores -->
 
         <div class="container" *ngIf=" data!=='1' && !datosCargados ">
 
@@ -72,7 +73,80 @@
 
         </div>
 
-        <div class="container-fluid " *ngIf=" data!=='1' && datosCargados" >
+        <!-- Fin Tarjeta para Proveedores -->
+
+        <!-- Tarjeta para empleados -->
+
+        <div class="container" *ngIf=" data=='1' && !datosCargados ">
+
+          <div class="row">
+              <h3 > <b>Selecciona un rango de fechas:</b> </h3>
+              <br>
+              <br>
+              <br>
+
+              <form class="form-inline" [formGroup] = "retenciones_proveedor_form_empleado" (ngSubmit)="getRetencionesISLR_Empleados(retenciones_proveedor_form_empleado.value)">
+
+                      <div class="form-group col-sm-6">
+                      <div class="input-group">
+                          <input class="form-control" placeholder="Inicio"
+                              formControlName="fecha_i" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+                          <div class="input-group-append">
+                          <button class="btn btn-outline-secondary calendar calendar fa fa-calendar" (click)="d.toggle()" type="button"></button>
+                          </div>
+                      </div>
+                      </div>
+                      <br>
+                      <br>
+
+                      <div class="form-group col-sm-6">
+                          <div class="input-group">
+                          <input class="form-control" placeholder="Fin"
+                          formControlName="fecha_f" [(ngModel)]="model2" ngbDatepicker #d2="ngbDatepicker">
+                          <div class="input-group-append">
+                              <button class="btn btn-outline-secondary calendar calendar fa fa-calendar" (click)="d2.toggle()" type="button"></button>
+                          </div>
+                          </div>
+                      </div>
+
+                      <br>
+                      <br>
+
+                      <h3 > <b>Selecciona un proveedor:</b> </h3>
+                      <br>
+
+
+                        <!-- Dropdown Proveedores -->
+                      <div class="row">
+                        <div class="col">
+                          <select id="proveedores" formControlName="prov_cod" >
+                            <option *ngFor="let prov of proveedores" [value]="prov.pro_cod" >{{prov.pro_cod}} - {{ prov.pro_descripcion }}</option>
+                           </select>  
+                        </div>
+                      </div>
+
+                      <!-- Fin Dropdown Proveedores -->
+
+                      <br>
+                      <br>
+
+                      <div class="container">
+                          <div class="row">
+                              <button type="submit" class="btn btn-success col-sm-1">Enviar</button>
+                          </div>
+                      </div>
+
+                  
+                </form>
+          </div>
+
+      </div>
+
+      <!-- Fin Tarjeta para empleados -->
+
+
+
+        <div class="container-fluid " *ngIf="datosCargados" >
             <div class="row">
               <div class="col-1"></div>
                 <div class="col-10 main-content">
@@ -143,11 +217,11 @@
                            </thead>
                            <tbody *ngFor="let renglon of pagoRetencionesISLR.pagos_retencion_islr; index as i">
                              <tr>  
-                               <td>{{renglon.fecha}}</td>
+                                 <td>{{renglon.fecha}}</td>
                                  <td>{{renglon.numPago}}</td>
                                  <td>{{renglon.tipoPago}}</td>
                                  <td>{{renglon.nroDoc  }}</td>
-                                 <td>----</td>
+                                 <td>{{renglon.nroControl}}</td>
                                  <td>{{renglon.pagRentReng_monto}}</td>
                                  <td>{{renglon.pagRentReng_monto}}</td>
                                  <td>{{renglon.pagRentReng_monto}}</td>

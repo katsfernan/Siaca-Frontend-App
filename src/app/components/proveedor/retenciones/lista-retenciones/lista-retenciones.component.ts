@@ -77,6 +77,8 @@ export class ListaRetencionesComponent implements OnInit {
         let nuevoRenglon: any = []
         let fec_emis : any = new Date(renglonArray[i][1].pagRetIva_fecha_doc);
         fec_emis = this.parseDate(fec_emis);
+
+        console.log(renglonArray[i])
   
         nuevoRenglon.push(1 + "")
         nuevoRenglon.push(fec_emis)

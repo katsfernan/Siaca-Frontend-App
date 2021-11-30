@@ -29,6 +29,7 @@ export interface UserResponse{
 }
 
 export interface Proveedor {
+    "pro_cod": string,
     "pro_rif": number,
     "pro_descripcion": string,
     "pro_direc1": string,

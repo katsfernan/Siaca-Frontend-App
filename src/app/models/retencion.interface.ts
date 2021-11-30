@@ -27,7 +27,7 @@ export interface PagoRetencionISLR {
     "numPago": string,
     "tipoPago": string,
     "nroDoc": string,
-    "nroControl": string,
+    // "nroControl": string,
 }
 
 export interface PagoRetencionISLRReporte {

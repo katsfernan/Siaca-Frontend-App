@@ -144,6 +144,17 @@
 
       <!-- Fin Tarjeta para empleados -->
 
+      <!-- Manejo de errores -->
+
+    
+      <ng-template [ngIf]=errorStatus>
+        <div class="alert alert-danger alert-dismissible" role="alert">
+          <span type="button" class="close" data-bs-dismiss="alert" aria-label="Close" style="font-size: 25px;"><span aria-hidden="true">&times;</span></span>
+          <b>{{errorMensaje}} </b>
+        </div>
+      </ng-template>
+
+      <!-- Fin Manejo de Errores -->
 
 
         <div class="container-fluid " *ngIf="datosCargados" >
@@ -221,7 +232,8 @@
                                  <td>{{renglon.numPago}}</td>
                                  <td>{{renglon.tipoPago}}</td>
                                  <td>{{renglon.nroDoc  }}</td>
-                                 <td>{{renglon.nroControl}}</td>
+                                 <!-- <td>{{renglon.nroControl}}</td> -->
+                                 <td>'--'</td>
                                  <td>{{renglon.pagRentReng_monto}}</td>
                                  <td>{{renglon.pagRentReng_monto}}</td>
                                  <td>{{renglon.pagRentReng_monto}}</td>

@@ -71,8 +71,8 @@
                               <td scope="col">{{reten.pagRetIva_periodo}}</td>
                               <td scope="col">{{reten.pagRetIva_fecha_doc | date:'dd/MM/yy'}}</td>
                               <td scope="col">{{reten.pagRetIva_doc_num_control}}</td>
-                              <td scope="col">{{reten.pagRetIva_base_imponible | number}}</td>
-                              <td scope="col">{{reten.pagRetIva_monto_ret_imp | number}}</td>
+                              <td scope="col">{{reten.pagRetIva_base_imponible.toLocaleString(undefined,{ minimumFractionDigits: 2 })}} BsS.</td>
+                              <td scope="col">{{reten.pagRetIva_monto_ret_imp.toLocaleString(undefined,{ minimumFractionDigits: 2 } )}} BsS.</td>
                               <td scope="col">{{reten.pagRetIva_num_comprobante}}</td>
                               <td><button type="button" class="btn btn-success" (click)=imprimirPDF(reten)>PDF</button></td>
 

@@ -70,6 +70,7 @@ export class ListaRetencionesISLRComponent implements OnInit {
   getRetencionesISLR(form: any ){
     this.service.listaPagoRetencionesISLR(form.fecha_i, form.fecha_f)
     .subscribe((response) => {
+        this.errorStatus = false
         this.datosCargados = true
         this.pagoRetencionesISLR = response
       },
@@ -82,6 +83,7 @@ export class ListaRetencionesISLRComponent implements OnInit {
     getRetencionesISLR_Empleados(form: any ){
       this.service.listaPagoRetencionesISLR_Empleados(form.fecha_i, form.fecha_f, form.prov_cod)
       .subscribe((response) => {
+          this.errorStatus = false
           this.datosCargados = true
           this.pagoRetencionesISLR = response
           console.log(response)
@@ -171,7 +173,7 @@ export class ListaRetencionesISLRComponent implements OnInit {
 
       pdf.setLineWidth(0.4).rect(x + 14, y + 46 , 249 , 35)
 
-      pdf.text('Proveedor / Beneficiario', x + 70, y + 50)
+      pdf.text('Proveedor / Beneficiario', x + 55, y + 50)
 
       pdf.text('Proveedor / Beneficiario:', x + 15 , y + 60)
       pdf.setLineWidth(0.4).line(x + 14, y + 52 , x +263 , y + 52)

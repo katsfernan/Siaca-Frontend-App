@@ -70,7 +70,7 @@
                         <td>{{factura.fac_fecha_venc | date:'dd/MM/yy'}}</td>
                         <td>{{factura.fac_fecha_reg | date:'dd/MM/yy'}}</td>
                         <td>{{factura.fac_num_control}}</td>
-                        <td>{{factura.fac_monto_total | number}} BsS.</td>
+                        <td>{{factura.fac_monto_total.toLocaleString(undefined,{ minimumFractionDigits: 2 } )}} BsS.</td>
                         <td>{{factura.condicionPagoDesc}}</td>
                         <td><a href="facturas/detalle/{{factura.fac_doc_num}}">Detalle</a></td>
                       </tr>

@@ -61,7 +61,7 @@
                           <p class="card-text"><b>N° control: </b>{{facturaDetalle.encabezado.fac_num_control}}</p>
                         </div>
                         <div class="col-6">
-                          <p class="card-text"><b>Monto total factura: </b>{{facturaDetalle.encabezado.fac_monto_total | number}} BsS.</p>
+                          <p class="card-text"><b>Monto total factura: </b>{{facturaDetalle.encabezado.fac_monto_total.toLocaleString(undefined,{ minimumFractionDigits: 2 } )}}  BsS.</p>
                         </div>
                       </div>
                    </div>
@@ -88,9 +88,9 @@
                          <td>{{renglon.facren_reng_num}}</td>
                            <td>{{renglon.articuloDesc}}</td>
                            <td>{{renglon.facren_total_art}}</td>
-                           <td>{{renglon.facren_precio_venta | number }}</td>
-                           <td>{{renglon.facren_monto_imp | number}}</td>
-                           <td>{{renglon.facren_reng_neto | number}}</td>
+                           <td>{{renglon.facren_precio_venta.toLocaleString(undefined,{ minimumFractionDigits: 2 } ) }} BsS.</td>
+                           <td>{{renglon.facren_monto_imp.toLocaleString(undefined,{ minimumFractionDigits: 2 } )}} BsS.</td>
+                           <td>{{renglon.facren_reng_neto.toLocaleString(undefined,{ minimumFractionDigits: 2 } ) }} BsS.</td>
                            <td>
                              <div  *ngIf="renglon.facren_comentario">
                                <button type="button" class="btn btn-success" 
